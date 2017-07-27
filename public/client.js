@@ -130,8 +130,15 @@ function draw() {
 	for (i = 0; i < beacons.length; i++) {
 		push();
 		translate(beacons[i].x - OX + (width / 2), beacons[i].y - OY + (height / 2));
+		if (beacons[i].type == 0) {
+			fill(150);
+			stroke(0);
+			
+			ellipse(0, 0, 500, 500);
+		}
 		noFill();
 		stroke(255, 0, 0);
+		fill(200);
 		ellipse(0, 0, 500, 500);
 		pop();
 	}

@@ -19,15 +19,16 @@ function player(id, x, y) {
 	this.hull = 100;
 	this.fuel = 100;
 	this.shield = 1;
+	this.enemy = 0;
 }
 
-function beacon(x, y) {
+function beacon(x, y, t) {
 	this.x = x;
 	this.y = y;
-	this.type = 0;
+	this.type = t;
 }
 
-var beaconAmount = 100;
+var beaconAmount = 10;
 var mapSize = 10000;
 var a = 0.05;
 var maxv = 20;
@@ -164,7 +165,7 @@ function generate() {
 				}
 			}
 		}
-		var Beacon = new beacon(x, y);
+		var Beacon = new beacon(x, y, Math.floor(Math.random() * 3));
 		beacons.push(Beacon);
 	}
 }
