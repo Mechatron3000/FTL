@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var server = app.listen(8080);
 app.use(express.static('public'));
-//app.use(express.static(path.join(__dirname, 'public')));
 var socket = require('socket.io');
 var io = socket(server);
 io.sockets.on('connection', newConnection);
@@ -65,7 +64,8 @@ function newConnection(socket) {
 	/////////////////////////////////////////////
 	var data = {
 		ID: socket.id,
-		PL: players
+		PL: players,
+		BC: beacons
 	}
 	socket.emit('setupData', data);
 	/////////////////////////////////////////////
@@ -135,6 +135,10 @@ function mainLoop() {
 				else {
 					players[i].speed = 0;
 				}
+			}
+			if (players.length == 1) {
+				players[i].x += (Math.cos(players[i].angle) * players[i].speed);
+				players[i].y -= (Math.sin(players[i].angle) * players[i].speed);
 			}
 		}
 	}

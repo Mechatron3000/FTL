@@ -19,6 +19,7 @@ function setup() {
 function saveData(data) {
 	ID = data.ID;
 	players = data.PL;
+	beacons = data.BC;
 }
 
 window.onresize = function(event) {
