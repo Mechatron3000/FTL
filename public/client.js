@@ -8,8 +8,8 @@ var ID = ' ';
 
 function setup() {
   canvasSetup();
-	socket = io.connect('http://78.62.26.153:12345');
-	//socket = io.connect('http://localhost:12345');
+	//socket = io.connect('http://78.62.26.153:12345');
+	socket = io.connect('http://ftl.cleverapps.io');
 	socket.on('setupData', saveData);
 	socket.on('update', serverUpdate);
 	rectMode(CENTER);
