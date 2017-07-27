@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var server = app.listen(12345);
-app.use(express.static('public'));
+//app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 var socket = require('socket.io');
 var io = socket(server);
 io.sockets.on('connection', newConnection);
